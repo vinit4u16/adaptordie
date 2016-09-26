@@ -1,0 +1,65 @@
+{
+	"variables": [],
+	"info": {
+		"name": "AoD Client APIs",
+		"_postman_id": "aa677609-f877-5062-fafb-f567812979e8",
+		"description": "",
+		"schema": "https://schema.getpostman.com/json/collection/v2.0.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Make Reservation",
+			"request": {
+				"url": "http://{org}-{env}.apigee.net/v1/adventures/reservations",
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"description": ""
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n  \"memberId\": \"micro123\",\n  \"preferences\": [\n    {\n      \"roomType\": \"seaFacing\",\n      \"cuisine\": \"sushi\",\n      \"outdoors\": \"scuba\",\n      \"leisure\": \"yoga\"\n    }\n  ]\n}"
+				},
+				"description": ""
+			},
+			"response": []
+		},
+		{
+			"name": "GET Reservations",
+			"request": {
+				"url": "http://{org}-{env}.apigee.net/v1/adventures/reservations/{reservationId}",
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "formdata",
+					"formdata": []
+				},
+				"description": ""
+			},
+			"response": []
+		},
+		{
+			"name": "Member Reservation Checkin",
+			"request": {
+				"url": "http://{org}-{env}.apigee.net/v1/adventures/reservations/{reservationId}/checkin",
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"description": ""
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\t\"memberId\":\"micro123\",\n\t\"passCode\":\"po1wt\"\n}"
+				},
+				"description": ""
+			},
+			"response": []
+		}
+	]
+}

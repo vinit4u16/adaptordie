@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<Javascript async="false" continueOnError="true" enabled="true" timeLimit="10000" name="addDelay">
+    <DisplayName>addDelay</DisplayName>
+    <Properties/>
+    <ResourceURL>jsc://addDelay.js</ResourceURL>
+</Javascript>

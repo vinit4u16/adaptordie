@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<AssignMessage async="false" continueOnError="false" enabled="true" name="assignCheckinRequest">
+    <DisplayName>assignCheckinRequest</DisplayName>
+    <Properties/>
+    <Set>
+        <Headers>
+            <Header name="content-type">application/json</Header>
+        </Headers>
+        <QueryParams/>
+        <FormParams/>
+        <Verb>PUT</Verb>
+        <Payload variablePrefix="%" variableSuffix="#">
+            {"checkedIn":"true","displayed":"false"}
+        </Payload>
+        <Path/>
+    </Set>
+    <IgnoreUnresolvedVariables>true</IgnoreUnresolvedVariables>
+    <AssignTo createNew="false" transport="http" type="request"/>
+</AssignMessage>

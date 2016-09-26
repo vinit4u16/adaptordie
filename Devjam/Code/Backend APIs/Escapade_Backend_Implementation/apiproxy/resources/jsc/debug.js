@@ -1,0 +1,1 @@
+var checkedIn = context.getVariable("checkedIn");

@@ -1,0 +1,126 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<ProxyEndpoint name="default">
+    <Description/>
+    <FaultRules/>
+    <DefaultFaultRule name="default-fault">
+        <Step>
+            <Name>raiseDefaultError</Name>
+        </Step>
+    </DefaultFaultRule>
+    <PreFlow name="PreFlow">
+        <Request>
+            <Step>
+                <Name>extractRequestVariables</Name>
+            </Step>
+        </Request>
+        <Response/>
+    </PreFlow>
+    <PostFlow name="PostFlow">
+        <Request/>
+        <Response/>
+    </PostFlow>
+    <Flows>
+        <!-- This is for CORS -->
+        <!--<Flow name="OptionsPreFlight">
+            <Request/>
+            <Response>
+                <Step>
+                    <Name>AddCORS</Name>
+                </Step>
+            </Response>
+            <Condition>request.verb == "OPTIONS"</Condition>
+        </Flow> -->
+        <Flow name="getReservationsByMemberId">
+            <Description>This resource gets all reservations for a member</Description>
+            <Request/>
+            <Response>
+                <Step>
+                    <Name>extractGetReservationResponse</Name>
+                </Step>
+                <Step>
+                    <Name>assignGetReservationResponse</Name>
+                </Step>
+                <Step>
+                    <Name>addDelay</Name>
+                </Step>
+            </Response>
+            <Condition>(proxy.pathsuffix MatchesPath "/{reservationId}") and (request.verb = "GET")</Condition>
+        </Flow>
+        <Flow name="checkinByReservationId">
+            <Description>This resource checks in a member</Description>
+            <Request>
+                <Step>
+                    <Name>lookupReservationCheckinCache</Name>
+                </Step>
+                <Step>
+                    <Name>calloutBaaSToFetchCheckin</Name>
+                </Step>
+            </Request>
+            <Response>
+                <Step>
+                    <Name>populateReservationCheckinCache</Name>
+                </Step>
+                <Step>
+                    <Name>debug</Name>
+                </Step>
+                <Step>
+                    <Name>calloutCheckinApp</Name>
+                    <Condition>checkedIn=null</Condition>
+                </Step>
+                <Step>
+                    <Name>assignRe-CheckedInResponse</Name>
+                    <Condition>checkedIn!=null</Condition>
+                </Step>
+                <Step>
+                    <Name>assignCheckedInResponse</Name>
+                    <Condition>checkedIn=null</Condition>
+                </Step>
+            </Response>
+            <Condition>(proxy.pathsuffix MatchesPath "/{reservationId}/checkin") and ((request.verb = "POST") or (request.verb = "PUT"))</Condition>
+        </Flow>
+        <Flow name="makeReservation">
+            <Description>This resource makes a reservation for a memberId</Description>
+            <Request>
+                <Step>
+                    <Name>calloutBaaSToFetchUuid</Name>
+                </Step>
+                <Step>
+                    <Name>modifyRequestPayload</Name>
+                </Step>
+            </Request>
+            <Response>
+                <Step>
+                    <Name>passcodeGenerator</Name>
+                </Step>
+                <Step>
+                    <Name>calloutBaaSToAddToMemberCheckins</Name>
+                </Step>
+                <Step>
+                    <Name>setClientResponse</Name>
+                </Step>
+            </Response>
+            <Condition>((request.verb = "POST") or (request.verb = "PUT")) and !(proxy.pathsuffix MatchesPath "/{reservationId}/checkin")</Condition>
+        </Flow>
+        <Flow name="Default">
+            <Description>Catch any other access and throw a 404 Fault</Description>
+            <Request>
+                <Step>
+                    <Name>raiseUnknownResource</Name>
+                </Step>
+            </Request>
+            <Response/>
+        </Flow>
+    </Flows>
+    <HTTPProxyConnection>
+        <BasePath>/adventures/reservations</BasePath>
+        <Properties/>
+        <VirtualHost>default</VirtualHost>
+        <VirtualHost>secure</VirtualHost>
+    </HTTPProxyConnection>
+    <RouteRule name="default">
+        <TargetEndpoint>default</TargetEndpoint>
+    </RouteRule>
+    <!-- <RouteRule name="noRoute">
+        <Condition>request.verb == "OPTIONS"</Condition>
+    </RouteRule> -->
+</ProxyEndpoint>

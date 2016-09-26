@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<PopulateCache async="false" continueOnError="false" enabled="true" name="populateReservationCheckinCache">
+    <DisplayName>populateReservationCheckinCache</DisplayName>
+    <Properties/>
+    <CacheKey>
+        <KeyFragment ref="reservationId"/>
+    </CacheKey>
+    <CacheResource>AdventureCheckinCache</CacheResource>
+    <Scope>Global</Scope>
+    <ExpirySettings>
+        <TimeoutInSec>300</TimeoutInSec>
+    </ExpirySettings>
+    <Source>reservationId</Source>
+</PopulateCache>

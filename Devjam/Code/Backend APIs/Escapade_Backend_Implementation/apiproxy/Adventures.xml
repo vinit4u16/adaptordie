@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<APIProxy revision="1" name="Adventures">
+    <ConfigurationVersion majorVersion="4" minorVersion="0"/>
+    <CreatedAt>1474674067079</CreatedAt>
+    <CreatedBy>vmehta@apigee.com</CreatedBy>
+    <Description>This is an adventures proxy</Description>
+    <DisplayName>Adventures</DisplayName>
+    <LastModifiedAt>1474914335473</LastModifiedAt>
+    <LastModifiedBy>vmehta@apigee.com</LastModifiedBy>
+    <Policies>
+        <Policy>AddCORS</Policy>
+        <Policy>SaveToBaaS</Policy>
+        <Policy>SetHeaders</Policy>
+        <Policy>addDelay</Policy>
+        <Policy>assignCheckedInResponse</Policy>
+        <Policy>assignCheckinRequest</Policy>
+        <Policy>assignGetReservationResponse</Policy>
+        <Policy>assignRe-CheckedInResponse</Policy>
+        <Policy>calloutBaaSToAddToMemberCheckins</Policy>
+        <Policy>calloutBaaSToFetchCheckin</Policy>
+        <Policy>calloutBaaSToFetchUuid</Policy>
+        <Policy>calloutCheckinApp</Policy>
+        <Policy>debug</Policy>
+        <Policy>extractGetReservationResponse</Policy>
+        <Policy>extractRequestVariables</Policy>
+        <Policy>jsExtractOrigin</Policy>
+        <Policy>lookupReservationCheckinCache</Policy>
+        <Policy>modifyRequestPayload</Policy>
+        <Policy>passcodeGenerator</Policy>
+        <Policy>populateCheckinByReservationIdCache</Policy>
+        <Policy>populateReservationCheckinCache</Policy>
+        <Policy>raiseDefaultError</Policy>
+        <Policy>raiseUnknownResource</Policy>
+        <Policy>setCheckinTargetUrl</Policy>
+        <Policy>setClientResponse</Policy>
+        <Policy>setTargetUrl</Policy>
+    </Policies>
+    <ProxyEndpoints>
+        <ProxyEndpoint>default</ProxyEndpoint>
+    </ProxyEndpoints>
+    <Resources>
+        <Resource>jsc://SaveToBaaS.js</Resource>
+        <Resource>jsc://addDelay.js</Resource>
+        <Resource>jsc://debug.js</Resource>
+        <Resource>jsc://generateUuid.js</Resource>
+        <Resource>jsc://jsExtractOrigin.js</Resource>
+        <Resource>jsc://modifyRequestPayload.js</Resource>
+        <Resource>jsc://passcodeGenerator.js</Resource>
+        <Resource>jsc://setCheckinTargetUrl.js</Resource>
+        <Resource>jsc://setTargetUrl.js</Resource>
+    </Resources>
+    <TargetServers/>
+    <TargetEndpoints>
+        <TargetEndpoint>default</TargetEndpoint>
+    </TargetEndpoints>
+    <validate>false</validate>
+</APIProxy>

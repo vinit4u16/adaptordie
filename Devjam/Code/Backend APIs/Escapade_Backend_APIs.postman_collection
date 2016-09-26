@@ -1,0 +1,65 @@
+{
+	"variables": [],
+	"info": {
+		"name": "AoD Backend APIs",
+		"_postman_id": "6f60b1c7-cd3f-f443-4ff1-88c77fbd4a08",
+		"description": "",
+		"schema": "https://schema.getpostman.com/json/collection/v2.0.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Make Reservation",
+			"request": {
+				"url": "http://escapade-prod.apigee.net/adventures/reservations",
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"description": ""
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n  \"memberId\": \"micro123\",\n  \"preferences\": [\n    {\n      \"roomType\": \"seaFacing\",\n      \"cuisine\": \"sushi\",\n      \"outdoors\": \"scuba\",\n      \"leisure\": \"yoga\"\n    }\n  ]\n}"
+				},
+				"description": ""
+			},
+			"response": []
+		},
+		{
+			"name": "GET Reservations",
+			"request": {
+				"url": "http://escapade-prod.apigee.net/adventures/reservations/367dfd5a-82ca-11e6-bbc6-f53de81047e3",
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "formdata",
+					"formdata": []
+				},
+				"description": ""
+			},
+			"response": []
+		},
+		{
+			"name": "Member Reservation Checkin",
+			"request": {
+				"url": "http://escapade-prod.apigee.net/adventures/reservations/367dfd5a-82ca-11e6-bbc6-f53de81047e3/checkin",
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"description": ""
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\t\"memberId\":\"micro123\",\n\t\"passCode\":\"po1wt\"\n}"
+				},
+				"description": ""
+			},
+			"response": []
+		}
+	]
+}

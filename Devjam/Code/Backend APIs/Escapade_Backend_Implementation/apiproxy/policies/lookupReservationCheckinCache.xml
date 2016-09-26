@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<LookupCache async="false" continueOnError="false" enabled="true" name="lookupReservationCheckinCache">
+    <DisplayName>lookupReservationCheckinCache</DisplayName>
+    <Properties/>
+    <CacheKey>
+        <KeyFragment ref="reservationId"/>
+    </CacheKey>
+    <CacheResource>AdventureCheckinCache</CacheResource>
+    <Scope>Global</Scope>
+    <AssignTo>checkedIn</AssignTo>
+</LookupCache>

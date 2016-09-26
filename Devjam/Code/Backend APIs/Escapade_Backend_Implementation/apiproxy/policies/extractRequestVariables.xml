@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<ExtractVariables async="false" continueOnError="true" enabled="true" name="extractRequestVariables">
+    <DisplayName>extractRequestVariables</DisplayName>
+    <Properties/>
+    <IgnoreUnresolvedVariables>true</IgnoreUnresolvedVariables>
+    <JSONPayload>
+        <Variable name="memberId" type="string">
+            <JSONPath>$.memberId</JSONPath>
+        </Variable>
+        <Variable name="passCode" type="string">
+            <JSONPath>$.passCode</JSONPath>
+        </Variable>
+    </JSONPayload>
+    <URIPath>
+        <Pattern ignoreCase="true">/{reservationId}</Pattern>
+        <Pattern ignoreCase="true">/{reservationId}/checkin</Pattern>
+    </URIPath>
+    <Source clearPayload="false">request</Source>
+</ExtractVariables>

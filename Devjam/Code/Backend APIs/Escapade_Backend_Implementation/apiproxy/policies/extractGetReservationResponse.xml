@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<ExtractVariables async="false" continueOnError="false" enabled="true" name="extractGetReservationResponse">
+    <DisplayName>extractGetReservationResponse</DisplayName>
+    <Properties/>
+    <IgnoreUnresolvedVariables>true</IgnoreUnresolvedVariables>
+    <JSONPayload>
+        <Variable name="memberIdRes" type="string">
+            <JSONPath>$.entities[0].memberId</JSONPath>
+        </Variable>
+        <Variable name="preferencesRes" type="nodeset">
+            <JSONPath>$.entities[0].preferences</JSONPath>
+        </Variable>
+    </JSONPayload>
+    <Source clearPayload="false">response</Source>
+</ExtractVariables>

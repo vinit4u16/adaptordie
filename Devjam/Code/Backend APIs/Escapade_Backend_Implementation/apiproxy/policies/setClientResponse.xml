@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<AssignMessage async="false" continueOnError="false" enabled="true" name="setClientResponse">
+    <DisplayName>setClientResponse</DisplayName>
+    <Properties/>
+    <Set>
+        <Headers/>
+        <QueryParams/>
+        <FormParams/>
+        <Payload variablePrefix="%" variableSuffix="#">
+            {"reservationId":"%uuid#","passCode":"%passCode#", "status":"confirmed"}
+        </Payload>
+        <StatusCode>201</StatusCode>
+        <ReasonPhrase>CREATED</ReasonPhrase>
+        <Path/>
+    </Set>
+    <IgnoreUnresolvedVariables>true</IgnoreUnresolvedVariables>
+    <AssignTo createNew="false" transport="http" type="request"/>
+</AssignMessage>

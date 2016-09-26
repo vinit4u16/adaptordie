@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<ServiceCallout async="false" continueOnError="false" enabled="true" name="calloutBaaSToAddToMemberCheckins">
+    <DisplayName>calloutBaaSToAddToMemberCheckins</DisplayName>
+    <Properties/>
+    <Request clearPayload="true" variable="calloutBaaSToAddToMemberCheckins">
+        <IgnoreUnresolvedVariables>false</IgnoreUnresolvedVariables>
+        <Set>
+            <Verb>POST</Verb>
+            <Payload variablePrefix="%" variableSuffix="#">
+            {"reservationId":"%uuid#","memberId":"%memberId#","passCode":"%passCode#"}
+            </Payload>
+            <Headers>
+                <Header name="Content-Type">application/json</Header>
+            </Headers>
+        </Set>
+    </Request>
+    <Response>baasCalloutResponse2</Response>
+    <HTTPTargetConnection>
+        <Properties/>
+        <URL>https://api.usergrid.com/escapade/sandbox/memberCheckins</URL>
+    </HTTPTargetConnection>
+</ServiceCallout>

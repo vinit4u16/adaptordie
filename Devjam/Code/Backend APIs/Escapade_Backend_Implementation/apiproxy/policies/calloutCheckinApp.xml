@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<ServiceCallout async="false" continueOnError="false" enabled="true" name="calloutCheckinApp">
+    <DisplayName>calloutCheckinApp</DisplayName>
+    <Properties/>
+    <Request clearPayload="true" variable="calloutBaaSToAddToMemberCheckins">
+        <IgnoreUnresolvedVariables>false</IgnoreUnresolvedVariables>
+        <Set>
+            <Verb>POST</Verb>
+            <Payload variablePrefix="%" variableSuffix="#">
+            {"reservationId":"%reservationId#"}
+            </Payload>
+            <Headers>
+                <Header name="Content-Type">application/json</Header>
+            </Headers>
+        </Set>
+    </Request>
+    <Response>calloutResponse</Response>
+    <HTTPTargetConnection>
+        <Properties/>
+        <!-- TO DO Add Mutthu's Apps url -->
+        <URL>http://httpbin.org/post</URL>
+    </HTTPTargetConnection>
+</ServiceCallout>

@@ -9,6 +9,9 @@ This repo contains technical assets of devjam and other API implementations arou
   * Copy http://playground.apistudio.io/b50a8b64-b5ef-48a8-a0b2-1ed87e84e07f/spec
   * Update the Existing API to http://escapade-prod.apigee.net/adventures
 
+
+POSTMAN link to import the collection - https://www.getpostman.com/collections/40b87157f7b653febeb8
+
 # 1) Make Reservation
   
   URL: http://{org}-{env}.apigee.net/adventures/reservations

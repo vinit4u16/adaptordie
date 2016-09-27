@@ -1,0 +1,208 @@
+swagger: '2.0'
+info:
+  description: 'This is a simple Adventure service.  You can find out more about OpenAPI spec at [http://swagger.io](http://swagger.io) or on [irc.freenode.net, #swagger](http://swagger.io/irc/).'
+  version: 1.0.0
+  title: Adventures
+  contact:
+    name: Apigee
+    url: 'https://pages.apigee.com/request-support-general.html'
+    email: support@apigee.com
+  license:
+    name: Apache 2.0
+    url: 'http://www.apache.org/licenses/LICENSE-2.0.html'
+host: {YOUR_ORG_NAME}-prod.apigee.net
+basePath: /adventures
+tags:
+  - name: Adventure
+    description: API enabling the Adventure Escapade service
+consumes:
+  - application/json
+produces:
+  - application/json
+schemes:
+  - http
+  - https
+securityDefinitions:
+  apikey:
+    type: apiKey
+    in: query
+    name: apikey
+security:
+  - apikey: []
+
+paths:
+  '/reservations':
+    post:
+      summary: Make a reservation to the Adventure Escapade
+      description: This method will create a reservation
+      operationId: makeReservation
+      parameters:
+        - name: body
+          description: A new `reservation`
+          in: body
+          schema:
+            $ref: '#/definitions/reservation'
+      responses:
+        '200':
+          description: OK
+          schema:
+            $ref: '#/definitions/reservationResponse'
+        '400':
+            $ref: '#/responses/400'
+        '401':
+          $ref: '#/responses/401'
+        '403':
+          $ref: '#/responses/403'
+        '404':
+          $ref: '#/responses/404'
+              
+  '/reservations/{reservationId}':
+      get:
+        summary: Get reservation by uuid
+        description: This method will get a single reservation
+        operationId: getReservationById
+        parameters:
+          - name: reservationId
+            in: path
+            required: true
+            description: ID of a `reservation`
+            type: string
+        responses:
+          '200':
+            description: OK
+            schema:
+              $ref: '#/definitions/getReservation'
+          '400':
+            $ref: '#/responses/400'
+          '401':
+            $ref: '#/responses/401'
+          '403':
+            $ref: '#/responses/403'
+          '404':
+            $ref: '#/responses/404'
+            
+  '/reservations/{reservationId}/checkin':
+      post:
+        summary: Check-in a reservation
+        description: This method will be used to confirm and checkin the reservation made
+        operationId: checkinReservation
+        parameters:
+          - name: reservationId
+            in: path
+            required: true
+            description: ID of a `reservation`
+            type: string
+          - name: body
+            description: A new `reservation`
+            in: body
+            schema:
+              $ref: '#/definitions/checkin'
+        responses:
+          '200':
+            description: OK
+            schema:
+              type: object
+              properties:
+                message:
+                  type: string
+          '400':
+            $ref: '#/responses/400'
+          '401':
+            $ref: '#/responses/401'
+          '403':
+            $ref: '#/responses/403'
+          '404':
+            $ref: '#/responses/404'
+  
+  
+definitions:
+  reservation:
+    type: object
+    properties:
+      memberId:
+        type: string
+      preferences:
+        type: array
+        items:
+          $ref: '#/definitions/preference'
+  
+  getReservation:
+    type: object
+    properties:
+      memberId:
+        type: string
+      status:
+        type: string
+      preferences:
+        type: array
+        items:
+          $ref: '#/definitions/preference'
+  
+  checkin:
+    type: object
+    properties:
+      memberId:
+        type: string
+      passCode:
+        type: string
+  
+  reservationResponse:
+    type: object
+    properties:
+      reservationId:
+        type: string
+      passCode:
+        type: string
+      status:
+        type: string
+          
+  preference:
+    type: object
+    properties:
+      roomType:
+        type: string
+        default: seaView
+        enum:
+        - seaView
+        - cityView
+        - mountainView
+      cuisine:
+        type: string
+        default: sushi
+        enum:
+        - sushi
+        - mexican
+        - chinese
+        - indian
+        - italian
+      outdoors:
+        type: string
+        default: snorkeling
+        enum:
+        - snorkeling
+        - jetski
+        - scuba
+        - bungi
+      leisure:
+        type: string
+        default: spa
+        enum:
+        - spa
+        - massage
+        - sauna
+        - yoga
+  
+        
+responses:
+  '400':
+    description: Bad Request. Client request in error
+    schema: {}
+  '401':
+    description: Unauthorized. Client authentication token missing from request
+    schema: {}
+  '403':
+    description: Forbidden. Client authentication token does not permit this method on this resource
+    schema: {}
+  '404':
+    description: Not Found. Resource not found
+    schema: {}

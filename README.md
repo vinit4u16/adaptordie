@@ -30,5 +30,6 @@ This repo contains technical assets of devjam and other API implementations arou
     }
 ```
 
+Copy the response 
 
 To access Adapt or Die developer portal - click http://dev-adaptordie.devportal.apigee.com/

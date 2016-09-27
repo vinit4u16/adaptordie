@@ -2,7 +2,7 @@
 	"variables": [],
 	"info": {
 		"name": "AoD Client APIs",
-		"_postman_id": "aa677609-f877-5062-fafb-f567812979e8",
+		"_postman_id": "e414f451-3972-650a-da8e-39c120f27ecd",
 		"description": "",
 		"schema": "https://schema.getpostman.com/json/collection/v2.0.0/collection.json"
 	},
@@ -10,7 +10,7 @@
 		{
 			"name": "Make Reservation",
 			"request": {
-				"url": "http://{org}-{env}.apigee.net/v1/adventures/reservations",
+				"url": "http://adaptordiedevjam-prod.apigee.net/adventures/reservations",
 				"method": "POST",
 				"header": [
 					{
@@ -21,7 +21,7 @@
 				],
 				"body": {
 					"mode": "raw",
-					"raw": "{\n  \"memberId\": \"micro123\",\n  \"preferences\": [\n    {\n      \"roomType\": \"seaView\",\n      \"cuisine\": \"sushi\",\n      \"outdoors\": \"scuba\",\n      \"leisure\": \"yoga\"\n    }\n  ]\n}"
+					"raw": "{\n  \"memberId\": \"devjam123\",\n  \"preferences\": [\n    {\n      \"roomType\": \"seaView\",\n      \"cuisine\": \"indian\",\n      \"outdoors\": \"snorkelling\",\n      \"leisure\": \"spa\"\n    }\n  ]\n}"
 				},
 				"description": ""
 			},
@@ -30,7 +30,7 @@
 		{
 			"name": "GET Reservations",
 			"request": {
-				"url": "http://{org}-{env}.apigee.net/v1/adventures/reservations/{reservationId}",
+				"url": "http://adaptordiedevjam-prod.apigee.net/adventures/reservations/4bdb953a-84ce-11e6-9a83-973986538328",
 				"method": "GET",
 				"header": [],
 				"body": {
@@ -44,7 +44,7 @@
 		{
 			"name": "Member Reservation Checkin",
 			"request": {
-				"url": "http://{org}-{env}.apigee.net/v1/adventures/reservations/{reservationId}/checkin",
+				"url": "http://adaptordiedevjam-prod.apigee.net/adventures/reservations/4bdb953a-84ce-11e6-9a83-973986538328/checkin",
 				"method": "POST",
 				"header": [
 					{
@@ -55,7 +55,7 @@
 				],
 				"body": {
 					"mode": "raw",
-					"raw": "{\n\t\"memberId\":\"micro123\",\n\t\"passCode\":\"po1wt\"\n}"
+					"raw": "{\n\t\"memberId\":\"devjam123\",\n\t\"passCode\":\"1bhwy\"\n}"
 				},
 				"description": ""
 			},

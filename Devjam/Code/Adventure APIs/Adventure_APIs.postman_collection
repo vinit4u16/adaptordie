@@ -21,7 +21,7 @@
 				],
 				"body": {
 					"mode": "raw",
-					"raw": "{\n  \"memberId\": \"micro123\",\n  \"preferences\": [\n    {\n      \"roomType\": \"seaFacing\",\n      \"cuisine\": \"sushi\",\n      \"outdoors\": \"scuba\",\n      \"leisure\": \"yoga\"\n    }\n  ]\n}"
+					"raw": "{\n  \"memberId\": \"micro123\",\n  \"preferences\": [\n    {\n      \"roomType\": \"seaView\",\n      \"cuisine\": \"sushi\",\n      \"outdoors\": \"scuba\",\n      \"leisure\": \"yoga\"\n    }\n  ]\n}"
 				},
 				"description": ""
 			},

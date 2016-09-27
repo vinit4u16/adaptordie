@@ -72,4 +72,22 @@ Response:
 }
 ```
 
+# 3) Check-In
+
+  URL: http://{org}-{env}.apigee.net/adventures/reservations/{reservationId}/checkin
+ 
+  Method: POST
+ 
+  Header:
+  Content-Type: application/json
+  
+  Request:
+  
+```
+{
+	"memberId":"your_memberId",
+	"passCode":"****"
+}
+```
+
 To access Adapt or Die developer portal - click http://dev-adaptordie.devportal.apigee.com/

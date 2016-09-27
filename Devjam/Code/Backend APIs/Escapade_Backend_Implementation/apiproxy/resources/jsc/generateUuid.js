@@ -14,7 +14,7 @@
 
 function generateUUID(len)
 {
-    var text = " ";
+    var text = "";
 
     var charset = "abcdefghijklmnopqrstuvwxyz0123456789";
 

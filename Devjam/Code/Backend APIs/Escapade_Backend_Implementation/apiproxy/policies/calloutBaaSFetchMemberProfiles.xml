@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<ServiceCallout async="false" continueOnError="false" enabled="true" name="calloutBaaSFetchMemberProfiles">
+    <DisplayName>calloutBaaSFetchMemberProfiles</DisplayName>
+    <Properties/>
+    <Request clearPayload="true" variable="memberProfilesRequest">
+        <IgnoreUnresolvedVariables>false</IgnoreUnresolvedVariables>
+        <Set>
+            <Verb>GET</Verb>
+        </Set>
+    </Request>
+    <Response>memberProfilesResponse</Response>
+    <HTTPTargetConnection>
+        <Properties/>
+        <URL>https://api.usergrid.com/escapade/sandbox/memberProfiles/{reservationId}</URL>
+    </HTTPTargetConnection>
+</ServiceCallout>

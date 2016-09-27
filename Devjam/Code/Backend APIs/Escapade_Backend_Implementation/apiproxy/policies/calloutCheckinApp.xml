@@ -6,9 +6,7 @@
         <IgnoreUnresolvedVariables>false</IgnoreUnresolvedVariables>
         <Set>
             <Verb>POST</Verb>
-            <Payload variablePrefix="%" variableSuffix="#">
-            {"reservationId":"%reservationId#"}
-            </Payload>
+            <Payload variablePrefix="%" variableSuffix="#">%appRequest#</Payload>
             <Headers>
                 <Header name="Content-Type">application/json</Header>
             </Headers>
@@ -17,7 +15,11 @@
     <Response>calloutResponse</Response>
     <HTTPTargetConnection>
         <Properties/>
+        <SSLInfo>
+            <Enabled>true</Enabled>
+        </SSLInfo>
         <!-- TO DO Add Mutthu's Apps url -->
-        <URL>http://httpbin.org/post</URL>
+        <URL>https://escapade-app.herokuapp.com/checkin</URL>
+        <!--URL>http://httpbin.org/post</URL-->
     </HTTPTargetConnection>
 </ServiceCallout>

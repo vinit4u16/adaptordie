@@ -61,6 +61,12 @@
                     <Name>populateReservationCheckinCache</Name>
                 </Step>
                 <Step>
+                    <Name>calloutBaaSFetchMemberProfiles</Name>
+                </Step>
+                <Step>
+                    <Name>modifyMemberProfileResponse</Name>
+                </Step>
+                <Step>
                     <Name>debug</Name>
                 </Step>
                 <Step>

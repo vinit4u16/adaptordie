@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<APIProxy revision="1" name="Adventures">
+<APIProxy revision="1" name="Escapade_Backend_APIs">
     <ConfigurationVersion majorVersion="4" minorVersion="0"/>
-    <CreatedAt>1474674067079</CreatedAt>
+    <CreatedAt>1474939979833</CreatedAt>
     <CreatedBy>vmehta@apigee.com</CreatedBy>
     <Description>This is an adventures proxy</Description>
     <DisplayName>Adventures</DisplayName>
-    <LastModifiedAt>1474914335473</LastModifiedAt>
+    <LastModifiedAt>1474995105345</LastModifiedAt>
     <LastModifiedBy>vmehta@apigee.com</LastModifiedBy>
     <Policies>
         <Policy>AddCORS</Policy>
@@ -16,6 +16,7 @@
         <Policy>assignCheckinRequest</Policy>
         <Policy>assignGetReservationResponse</Policy>
         <Policy>assignRe-CheckedInResponse</Policy>
+        <Policy>calloutBaaSFetchMemberProfiles</Policy>
         <Policy>calloutBaaSToAddToMemberCheckins</Policy>
         <Policy>calloutBaaSToFetchCheckin</Policy>
         <Policy>calloutBaaSToFetchUuid</Policy>
@@ -25,6 +26,7 @@
         <Policy>extractRequestVariables</Policy>
         <Policy>jsExtractOrigin</Policy>
         <Policy>lookupReservationCheckinCache</Policy>
+        <Policy>modifyMemberProfileResponse</Policy>
         <Policy>modifyRequestPayload</Policy>
         <Policy>passcodeGenerator</Policy>
         <Policy>populateCheckinByReservationIdCache</Policy>
@@ -44,6 +46,7 @@
         <Resource>jsc://debug.js</Resource>
         <Resource>jsc://generateUuid.js</Resource>
         <Resource>jsc://jsExtractOrigin.js</Resource>
+        <Resource>jsc://modifyMemberProfileResponse.js</Resource>
         <Resource>jsc://modifyRequestPayload.js</Resource>
         <Resource>jsc://passcodeGenerator.js</Resource>
         <Resource>jsc://setCheckinTargetUrl.js</Resource>

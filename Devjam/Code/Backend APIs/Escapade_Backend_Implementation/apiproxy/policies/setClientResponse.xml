@@ -3,16 +3,21 @@
     <DisplayName>setClientResponse</DisplayName>
     <Properties/>
     <Set>
-        <Headers/>
-        <QueryParams/>
-        <FormParams/>
+        <Headers>
+            <Header name="Content-Type">application/json</Header>
+            <Header name="Accept">application/json</Header>
+        </Headers>
         <Payload variablePrefix="%" variableSuffix="#">
-            {"reservationId":"%uuid#","passCode":"%passCode#", "status":"confirmed"}
+            {
+                "reservationId":"%uuid#",
+                "passCode":"%passCode#",
+                "status":"confirmed"
+            }
         </Payload>
         <StatusCode>201</StatusCode>
         <ReasonPhrase>CREATED</ReasonPhrase>
         <Path/>
     </Set>
     <IgnoreUnresolvedVariables>true</IgnoreUnresolvedVariables>
-    <AssignTo createNew="false" transport="http" type="request"/>
+    <AssignTo createNew="false" transport="http" type="response"/>
 </AssignMessage>

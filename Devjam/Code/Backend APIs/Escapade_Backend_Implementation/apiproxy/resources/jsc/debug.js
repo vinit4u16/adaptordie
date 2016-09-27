@@ -1,1 +1,2 @@
-var checkedIn = context.getVariable("checkedIn");
+var checkedIn = context.getVariable("appRequest");
+print(checkedIn);

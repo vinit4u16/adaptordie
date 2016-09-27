@@ -9,12 +9,18 @@ This repo contains technical assets of devjam and other API implementations arou
   * Copy http://playground.apistudio.io/b50a8b64-b5ef-48a8-a0b2-1ed87e84e07f/spec
   * Update the Existing API to http://escapade-prod.apigee.net/adventures
 
-* Make Reservation
+# 1) Make Reservation
   
-  Payload (POST):
+  URL http://{org}-{env}.apigee.net/adventures/reservations
+  
+  Payload:
+ 
+  Method: POST
  
   Header:
   Content-Type: application/json
+  
+  Request:
   
 ```
     {
@@ -30,6 +36,16 @@ This repo contains technical assets of devjam and other API implementations arou
     }
 ```
 
-Copy the response 
+Copy the response and paste it a text editor, for example
+
+ Response:
+
+```
+{
+  "reservationId": "****",
+  "passCode": "*****",
+  "status": "confirmed"
+}
+```
 
 To access Adapt or Die developer portal - click http://dev-adaptordie.devportal.apigee.com/

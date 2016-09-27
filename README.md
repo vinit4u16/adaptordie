@@ -11,9 +11,7 @@ This repo contains technical assets of devjam and other API implementations arou
 
 # 1) Make Reservation
   
-  URL http://{org}-{env}.apigee.net/adventures/reservations
-  
-  Payload:
+  URL: http://{org}-{env}.apigee.net/adventures/reservations
  
   Method: POST
  
@@ -36,7 +34,7 @@ This repo contains technical assets of devjam and other API implementations arou
     }
 ```
 
-Copy the response and paste it a text editor, for example
+Copy the response and paste it in a text editor, for example
 
  Response:
 
@@ -45,6 +43,32 @@ Copy the response and paste it a text editor, for example
   "reservationId": "****",
   "passCode": "*****",
   "status": "confirmed"
+}
+```
+
+# 2) Get Reservation
+
+URL: http://{org}-{env}.apigee.net/adventures/reservations/{reservationId}
+ 
+  Method: GET
+ 
+  Header:
+  Content-Type: application/json
+
+Response:
+ 
+ ```
+ {
+  "memberId": "your_memberId",
+  "status": "confirmed",
+  "preferences": [
+    {
+      "roomType": "seaView",
+      "cuisine": "indian",
+      "outdoors": "snorkelling",
+      "leisure": "spa"
+    }
+  ]
 }
 ```
 
